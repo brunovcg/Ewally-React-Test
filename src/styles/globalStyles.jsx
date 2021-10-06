@@ -8,10 +8,11 @@ export default createGlobalStyle`
         --purple: #8E0181;
         --pink: #D93E7B;
         --grey: #8d8b8b;
-        --light-grey: #C2C2C2;
+        --light-grey: #bfbfbf;
         --red: #EF3540;
         --green: #12a71c;
         --white: #fff;
+        --yellow: #fffcd6;
         --transparent-black: rgba(80, 82, 81, 0.466) ;
     }
 

@@ -8,27 +8,58 @@ import Button from "../../components/Button";
 import convertDate from "../../utils/convertDate";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import ptBR from "date-fns/locale/pt-BR";
-import stringToDate from "../../utils/stringToDate"
-import convertToReal from "../../utils/convertToReal"
+import stringToDate from "../../utils/stringToDate";
+import convertToReal from "../../utils/convertToReal";
+import Modal from "react-modal";
+import customStyles from "../../utils/customStyles";
+import OtherInfo from "../../components/OtherInfo";
 
 const Account = () => {
   const { getUser, userToken } = useToken();
   const { getBalance, balance, getStatements, statements } = useBalance();
   const [valueInitial, setValueInitial] = useState(new Date());
   const [valueFinal, setValueFinal] = useState(new Date());
-
+  const [modalIsOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState("");
+  const [modalInfo, setModalInfo] = useState({});
 
   registerLocale("ptBR", ptBR);
   setDefaultLocale("ptBR");
 
+  const setModal = (latitude, longitude, receipt) => {
+    setModalInfo({
+      latitude: latitude,
+      longitude: longitude,
+      receipt: receipt,
+    });
+
+    setIsOpen(!modalIsOpen);
+  };
+
+
+
   useEffect(() => {
     setUser(getUser);
     getBalance();
-  }, [userToken]);
+  }, []);
 
   return (
     <Container>
+      <Modal
+        isOpen={modalIsOpen}
+        style={customStyles}
+        contentLabel="Example Modal"
+        onRequestClose={setIsOpen}
+        ariaHideApp={false}
+      >
+        <OtherInfo
+          latitude={modalInfo.latitude}
+          longitude={modalInfo.longitude}
+          receipt={modalInfo.receipt}
+          setModal={setModal}
+        />
+      </Modal>
+
       <div className="account-welcome-bar">
         <p>
           Bem vindo <span className="account-username">{user}</span> seu saldo é{" "}
@@ -73,31 +104,45 @@ const Account = () => {
           </div>
         </div>
 
-        
-        <table className="account-extrato-infos">
-            <tr className="info-title">
-              <th>Ref</th>
-              <th>Data</th>
-              <th>Tipo</th>
-              <th>Valor</th>
-            </tr>
+        <div className="account-extrato-infos">
+          <div className="info-title">
+            <p className="info-title-line">Data</p>
+            <p className="info-title-line">Tipo</p>
+            <p className="info-title-line">Valor</p>
+          </div>
 
-        
-            {statements &&
-              statements.map((transaction) => (
-                <tr key={transaction.id}>
-                  <td >{transaction.id}</td>
-                  <td >{convertDate(stringToDate(transaction.createdAt), true)}</td>
-                  <td>{transaction.operationType}</td>
-                  <td
-                    className={transaction.amount > 0 ? "positive" : "negative"}
+          {statements &&
+            statements.map((transaction) => (
+              <div className="info-statements" key={transaction.id}>
+                <div className="data">
+                  {convertDate(stringToDate(transaction.createdAt), true)}
+                </div>
+                <div className="type">{transaction.operationType}</div>
+                <div
+                  className={`value ${
+                    transaction.amount > 0 ? "positive" : "negative"
+                  }`}
+                >
+                  R$ {convertToReal(transaction.amount)}
+                  <Button
+                    setWidth="30px"
+                    setHeight="30px"
+                    setBackground="var(--white)"
+                    setColor="var(--purple)"
+                    setClick={() =>
+                      setModal(
+                        transaction.otherInfo.userLatitude,
+                        transaction.otherInfo.userLongitude,
+                        transaction.otherInfo.cupom
+                      )
+                    }
                   >
-                    R$ {convertToReal(transaction.amount)}
-                  </td>
-                </tr>
-              ))}
-          
-        </table>
+                    C
+                  </Button>
+                </div>
+              </div>
+            ))}
+        </div>
       </div>
     </Container>
   );

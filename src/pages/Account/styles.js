@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  
+
   min-height: 90vh;
   background-color: var(--light-grey);
 
@@ -19,6 +19,10 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    @media (max-width: 500px) {
+      font-size: 0.8rem;
+    }
 
     p {
       .account-username {
@@ -75,7 +79,7 @@ export const Container = styled.div`
           margin: 5px;
           p {
             text-align: center;
-            color: var(--grey)
+            color: var(--grey);
           }
         }
       }
@@ -94,42 +98,79 @@ export const Container = styled.div`
       }
     }
 
-    .account-extrato-infos{
+    .account-extrato-infos {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 90%;
+      margin-top: 30px;
 
-      .info-title{
+      .info-title {
         width: 100%;
+        display: flex;
+        align-items: center;
 
-        
-
-        th{
-          width: calc(100vw/4);
+        .info-title-line {
+          width: 33%;
+          text-align: center;
+          font-weight: bold;
         }
       }
 
-      tr{
-        width: calc(90vw);
+      .info-statements {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid var(--light-grey);
+
+        .data,
+        .type,
+        .value {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 33%;
+          font-size: 0.6rem;
+          text-align: center;
+          height: 50px;
+        }
+
+        .data {
+          @media (max-width: 500px) {
+            width: 15%;
+          }
+        }
+
+        .type {
+          @media (max-width: 500px) {
+            font-size: 0.45rem;
+            width: 50%;
+          }
+        }
+
+        .value {
+          justify-content: flex-end;
+          @media (max-width: 500px) {
+           
+            width: 35%;
+          }
+
+          button {
+            margin-left: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--purple);
+          }
+        }
+
+        .positive {
+          color: var(--green);
+        }
+
+        .negative {
+          color: var(--red);
+        }
       }
-
-        td{
-          width: calc(90vw/4);
-          font-size: 0.8rem;
-        
-        }
-    
-        .positive{
-          color: var(--green)
-        }
-
-        .negative{
-          color: var(--red)
-        }
-      }
-
     }
-  
+  }
 `;
