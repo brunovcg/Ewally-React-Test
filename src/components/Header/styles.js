@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 10vh;
   display: flex;
 
@@ -32,7 +32,7 @@ const Container = styled.div`
   }
 
   .header-apps {
-    width: 30%;
+    width: 20%;
 
     display: flex;
     justify-content: center;

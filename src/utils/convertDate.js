@@ -1,15 +1,16 @@
-const convertDate = () => {
+const convertDate = (data, reverse = false) => {
+  let dia = String(data.getDate()).padStart(2, "0");
 
+  let mes = String(data.getMonth() + 1).padStart(2, "0");
 
-    let data = new Date();
+  let ano = data.getFullYear();
 
-    let dia = String(data.getDate()).padStart(2, '0');
+  if (reverse) {
 
-    let mes = String(data.getMonth() + 1).padStart(2, '0');
+    return `${dia}/${mes}/${ano}`;
+  }
 
-    let ano = data.getFullYear();
+  return `${ano}-${mes}-${dia}`;
+};
 
-    return  `${ano}-${mes}-${dia}`
-}
-
-export default convertDate
+export default convertDate;

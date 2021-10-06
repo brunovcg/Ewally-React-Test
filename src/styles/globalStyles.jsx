@@ -24,6 +24,7 @@ export default createGlobalStyle`
 
     html{
         display: flex;
+        width: 100vw;
         
     }
 
@@ -32,7 +33,7 @@ export default createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         display: flex;
         justify-content: center;
-        width: 100%;
+        width: 100vw;
     
     }
 

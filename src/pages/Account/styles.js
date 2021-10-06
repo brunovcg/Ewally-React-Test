@@ -5,7 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 90vh;
+  
+  min-height: 90vh;
   background-color: var(--light-grey);
 
   .account-welcome-bar {
@@ -39,6 +40,11 @@ export const Container = styled.div`
     width: 90%;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
     h2 {
       margin-top: 15px;
@@ -87,5 +93,43 @@ export const Container = styled.div`
         }
       }
     }
-  }
+
+    .account-extrato-infos{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+
+      .info-title{
+        width: 100%;
+
+        
+
+        th{
+          width: calc(100vw/4);
+        }
+      }
+
+      tr{
+        width: calc(90vw);
+      }
+
+        td{
+          width: calc(90vw/4);
+          font-size: 0.8rem;
+        
+        }
+    
+        .positive{
+          color: var(--green)
+        }
+
+        .negative{
+          color: var(--red)
+        }
+      }
+
+    }
+  
 `;

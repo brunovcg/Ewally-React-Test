@@ -1,41 +1,53 @@
-import { createContext, useContext, useState} from "react";
+import { createContext, useContext, useState } from "react";
 import { useToken } from "../token";
-import convertToReal from "../../utils/convertToReal"
-import api from "../../services/api"
+import convertToReal from "../../utils/convertToReal";
+import api from "../../services/api";
 
 export const BalanceContext = createContext();
 
 export const BalanceProvider = ({ children }) => {
+  const { userToken } = useToken("");
 
+  const [balance, setBalance] = useState("");
 
+  const [statements, setStatements] = useState([]);
 
-    const {userToken } = useToken();
+  const getBalance = () => {
+    let configs = {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      },
+    };
 
-    const [balance, setBalance] = useState();
+    api.get(`account/balance`, configs).then((response) => {
+      setBalance(convertToReal(response.data.balance));
+    });
+  };
 
+  const getStatements = (dateInitial, dateFinal) => {
+    let configs = {
+      headers: {
+        Authorization: "Bearer " + userToken,
+      },
+    };
 
-    const   getBalance = () => {
-        let configs = {
-          headers: {
-            Authorization: "Bearer " + userToken,
-          },
-        };
+    api
+      .get(
+        `account/statements?initialDate=${dateInitial}&finalDate=${dateFinal}`,
+        configs
+      )
+      .then((response) => {
+        setStatements(response.data.statement);
+      });
+  };
 
-    
-        api.get(`account/balance`, configs).then((response) => {
-          setBalance(convertToReal(response.data.balance));
-        });
-      };
-
-
-    return (
-        <BalanceContext.Provider
-          value={{ getBalance, balance }}
-        >
-          {children}
-        </BalanceContext.Provider>
-      );
-
-}
+  return (
+    <BalanceContext.Provider
+      value={{ getBalance, balance, getStatements, statements }}
+    >
+      {children}
+    </BalanceContext.Provider>
+  );
+};
 
 export const useBalance = () => useContext(BalanceContext);
