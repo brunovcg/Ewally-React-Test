@@ -11,12 +11,12 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
-        <Route path="/account" exact component={Account} />
+        <Route path="/account" isPrivate={true} exact component={Account} />
         <Route component={PageNotFound} />
       </Switch>
     );
   };
 
-//   isPrivate={false} 
+//   
   
   export default Routes;

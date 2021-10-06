@@ -1,7 +1,7 @@
 import styled from "styled-components";
 const StyledButton = styled.button`
   width: ${(props) => (props.setWidth ? props.setWidth : "60px")};
-  max-width: ${(props) => (props.setMaxWidth ? props.setMaxWidth : "85px")};
+  max-width: ${(props) => (props.setMaxWidth ? props.setMaxWidth : "150px")};
   height: ${(props) => (props.setHeight ? props.setHeight : "30px")};
   background-color: ${(props) =>
     props.setBackground ? props.setBackground : "grey"};

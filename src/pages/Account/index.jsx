@@ -3,7 +3,11 @@ const Account= () => {
 
     return(
 
-        <div>Account</div>
+        <div>
+
+        <h1>Account</h1>
+
+        </div>
     )
 
 
