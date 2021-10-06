@@ -4,7 +4,7 @@ import { useToken } from "../../providers/token";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api.js";
-import {useState} from "react"
+import { useState } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import logo from "../../assets/logo.png";
@@ -12,7 +12,7 @@ import logo from "../../assets/logo.png";
 const Login = () => {
   const { setUserToken } = useToken();
 
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState("");
 
   const schema = yup.object().shape({
     username: yup.string().required("Campo necessário"),
@@ -33,7 +33,7 @@ const Login = () => {
 
       localStorage.setItem("@Ewally:Token:User", JSON.stringify(token));
       setUserToken(token);
-   
+
       localStorage.setItem("@Ewally:Username", user);
 
       // return history.push("/dashboard");
@@ -47,11 +47,13 @@ const Login = () => {
     <Container>
       <div className="login-transparent-box">
         <div className="login-main-box">
-          <figure>
-            <img src={logo} alt="logo" />
-          </figure>
+          <div className="login-title-logo">
+            <figure>
+              <img src={logo} alt="logo" />
+            </figure>
 
-          <h2>LOGIN</h2>
+            <h2>LOGIN</h2>
+          </div>
 
           <form>
             <Input
@@ -62,7 +64,7 @@ const Login = () => {
               setHeight="70px"
               setWidth="100%"
               setFont="1rem"
-              onChange={(e)=>setUser(e.target.value)}
+              onChange={(e) => setUser(e.target.value)}
             />
 
             <Input
@@ -81,9 +83,9 @@ const Login = () => {
                 setClick={handleSubmit(onSubmitFunction)}
                 setWidth="120px"
                 setHeight="45px"
-                setBackground="var(--ewally-green)"
-                setColor="var(--white)"
-                setFont="1.5rem"
+                setBackground="var(--white)"
+                setColor="var(--ewally-green)"
+                setFont="1.2rem"
                 type="submit"
               >
                 Logar

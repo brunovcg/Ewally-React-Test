@@ -33,7 +33,7 @@ const Home = () => {
               setBackground="var(--ewally-green)"
               setColor="var(--white)"
               setClick={() => goTo("/login")}
-              setFont="1.5rem"
+              setFont="1.3rem"
             >
               Acesse
             </Button>

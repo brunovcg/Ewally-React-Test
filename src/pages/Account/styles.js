@@ -40,11 +40,52 @@ export const Container = styled.div`
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-    h2{
-        margin-top: 15px;
-        width: 100%;
-        text-align: center;
-        color: var(--ewally-green)
+    h2 {
+      margin-top: 15px;
+      width: 100%;
+      text-align: center;
+      color: var(--ewally-green);
+      margin-bottom: 20px;
+    }
+
+    .account-date {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      margin: 0 auto;
+
+      .account-date-pickers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 75%;
+
+        @media (max-width: 500px) {
+          flex-direction: column;
+        }
+
+        .account-date-pickers-box {
+          margin: 5px;
+          p {
+            text-align: center;
+            color: var(--grey)
+          }
+        }
+      }
+
+      .account-button {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+
+        button {
+          border-radius: 50%;
+          width: 39px;
+          height: 39px;
+          border: 2px solid var(--orange);
+        }
+      }
     }
   }
 `;

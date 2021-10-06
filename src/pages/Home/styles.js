@@ -54,6 +54,15 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
 
+      button{
+       
+        border-radius: 50%;
+        width: 85px;
+        height: 85px;
+        border: 2px solid var(--white);
+      
+      }
+
     }
   }
 `;
