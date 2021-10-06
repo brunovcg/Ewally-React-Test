@@ -1,37 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Container } from "./styles";
 import { useToken } from "../../providers/token";
+import {useBalance} from "../../providers/balance"
 import { useEffect, useState } from "react";
-import api from "../../services/api";
+
+
 const Account = () => {
   const { getUser, userToken } = useToken();
+  const {getBalance, balance} = useBalance()
 
   const [user, setUser] = useState("");
-  const [balance, setBalance] = useState();
+  
 
-  const getBalance = () => {
-
-    const configs = {
-
-        headers : { 
-            Authorization : "Bearer " + userToken
-        }
-    }
-
-    api
-    .get(`account/balance`, configs)
-    .then((response) => {
-    
-    setBalance(response.data.balance)
-    console.log(response.data.balance)
-
-    }
-    
-    
-    )
-
-    
-  };
 
   useEffect(() => {
     setUser(getUser);
@@ -45,6 +25,9 @@ const Account = () => {
           Bem vindo <span className="account-username">{user}</span> seu saldo é{" "}
           <span className="account-balance">R$ {balance}</span>
         </p>
+      </div>
+      <div className="account-extrato">
+            <h2>Extato</h2>
       </div>
     </Container>
   );
