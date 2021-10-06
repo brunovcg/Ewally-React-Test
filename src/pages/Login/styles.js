@@ -5,7 +5,7 @@ export const Container = styled.div`
   background-image: url(${back});
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 90vh;
   width: 100%;
 
   .login-transparent-box {

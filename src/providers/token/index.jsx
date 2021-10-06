@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import jwt_decode from "jwt-decode";
+import { createContext, useContext, useState } from "react";
 
 export const TokenContext = createContext();
 
@@ -10,7 +9,7 @@ export const TokenProvider = ({ children }) => {
 
 
 
-  const getUserId = () => {
+  const getUser = () => {
     return localStorage.getItem("@Ewally:Username");
   };
 
@@ -23,7 +22,7 @@ export const TokenProvider = ({ children }) => {
 
   return (
     <TokenContext.Provider
-      value={{ userToken, setUserToken, handleLogout, getUserId }}
+      value={{ userToken, setUserToken, handleLogout, getUser }}
     >
       {children}
     </TokenContext.Provider>

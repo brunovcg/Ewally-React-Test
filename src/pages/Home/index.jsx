@@ -1,5 +1,5 @@
 import Container from "./styles";
-import Header from "../../components/Header";
+
 import Button from "../../components/Button";
 import { useHistory } from "react-router-dom";
 
@@ -11,8 +11,8 @@ const Home = () => {
   };  
 
   return (
-    <>
-      <Header />
+
+     
       <Container>
         <div className="home-transparent-box">
           <p className="home-big-text">
@@ -40,7 +40,7 @@ const Home = () => {
           </div>
         </div>
       </Container>
-    </>
+
   );
 };
 

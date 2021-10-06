@@ -11,9 +11,11 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    img {
-      @media (max-width: 500px) {
-        width: 10vw;
+    a {
+      img {
+        @media (max-width: 500px) {
+          width: 10vw;
+        }
       }
     }
   }
@@ -23,6 +25,10 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    h1{
+      color: var(--grey);
+    }
   }
 
   .header-apps {
@@ -34,10 +40,20 @@ const Container = styled.div`
 
     a {
       img {
+        :hover {
+          opacity: 50%;
+        }
         @media (max-width: 500px) {
           width: 10vw;
         }
       }
+    }
+
+    button {
+      border-radius: 50%;
+      width: 39px;
+      height: 39px;
+      border: 1px solid var(--red);
     }
   }
 `;
