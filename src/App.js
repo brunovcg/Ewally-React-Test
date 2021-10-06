@@ -1,3 +1,6 @@
+import Routes from "./routes/routes.jsx";
+
+
 const App = () => {
   return (
     <div className="App">
@@ -5,6 +8,9 @@ const App = () => {
   
 
       </header>
+
+      <Routes />
+
     </div>
   );
 }

@@ -1,14 +1,14 @@
 import { Container } from "./styles";
 import { useForm } from "react-hook-form";
-import { useToken } from "../../providers/TokenProvider";
+import { useToken } from "../../providers/token";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import api from "../../services/api";
+import api from "../../services/api.js"
 import jwt_decode from "jwt-decode";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-const UserLogin = () => {
+const Login = () => {
   const { setUserToken } = useToken();
 
   const schema = yup.object().shape({
@@ -81,4 +81,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default Login;
