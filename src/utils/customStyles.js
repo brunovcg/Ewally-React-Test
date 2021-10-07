@@ -2,7 +2,8 @@ const customStyles = {
   content: {
     top: "50%",
     left: "50%",
-    width: "90vw",
+    height: "70%",
+    width: "80%",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",

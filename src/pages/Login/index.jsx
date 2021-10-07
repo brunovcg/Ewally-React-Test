@@ -8,11 +8,14 @@ import { useState } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import logo from "../../assets/logo.png";
+import { useBalance } from "../../providers/balance";
 
 const Login = () => {
   const { setUserToken } = useToken();
 
   const [user, setUser] = useState("");
+
+  const { getBalance } = useBalance();
 
   const schema = yup.object().shape({
     username: yup.string().required("Campo necessário"),
@@ -27,14 +30,18 @@ const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data) => {
+  const onSubmitFunction = async (data) => {
     api.post("user/login", data).then((response) => {
+
       const { token } = response.data;
 
       localStorage.setItem("@Ewally:Token:User", JSON.stringify(token));
       setUserToken(token);
 
-      localStorage.setItem("@Ewally:Username", user);
+      localStorage.setItem("@Ewally:Username", JSON.stringify(user));
+
+
+      getBalance(token);
 
       // return history.push("/dashboard");
     });

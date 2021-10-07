@@ -53,7 +53,7 @@ const Container = styled.div`
       border-radius: 50%;
       width: 39px;
       height: 39px;
-      border: 1px solid var(--red);
+      border: 2px solid var(--red);
     }
   }
 `;

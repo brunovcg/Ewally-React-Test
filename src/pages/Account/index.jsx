@@ -2,7 +2,7 @@
 import { Container } from "./styles";
 import { useToken } from "../../providers/token";
 import { useBalance } from "../../providers/balance";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "../../components/Button";
 import convertDate from "../../utils/convertDate";
@@ -13,14 +13,15 @@ import convertToReal from "../../utils/convertToReal";
 import Modal from "react-modal";
 import customStyles from "../../utils/customStyles";
 import OtherInfo from "../../components/OtherInfo";
+import BarChart from "../../components/Chart";
 
 const Account = () => {
-  const { getUser, userToken } = useToken();
-  const { getBalance, balance, getStatements, statements } = useBalance();
+  const { userToken, user } = useToken();
+  const { balance, getStatements, statements } = useBalance();
   const [valueInitial, setValueInitial] = useState(new Date());
   const [valueFinal, setValueFinal] = useState(new Date());
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState("");
+
   const [modalInfo, setModalInfo] = useState({});
 
   registerLocale("ptBR", ptBR);
@@ -36,15 +37,13 @@ const Account = () => {
     setIsOpen(!modalIsOpen);
   };
 
-
-
-  useEffect(() => {
-    setUser(getUser);
-    getBalance();
-  }, []);
-
   return (
     <Container>
+      <button
+        onClick={() => console.log("balance:", balance, "token:", userToken)}
+      >
+        teste
+      </button>
       <Modal
         isOpen={modalIsOpen}
         style={customStyles}
@@ -77,6 +76,7 @@ const Account = () => {
                 selected={valueInitial}
                 onChange={(date) => setValueInitial(date)}
                 onSelect={(date) => setValueInitial(date)}
+                dateFormat="dd/MM/yyyy"
               />
             </div>
             <div className="account-date-pickers-box">
@@ -85,6 +85,7 @@ const Account = () => {
                 selected={valueFinal}
                 onChange={(date) => setValueFinal(date)}
                 onSelect={(date) => setValueFinal(date)}
+                dateFormat="dd/MM/yyyy"
               />
             </div>
           </div>
@@ -104,12 +105,16 @@ const Account = () => {
           </div>
         </div>
 
+        <BarChart statements={statements}/>
+
         <div className="account-extrato-infos">
-          <div className="info-title">
-            <p className="info-title-line">Data</p>
-            <p className="info-title-line">Tipo</p>
-            <p className="info-title-line">Valor</p>
-          </div>
+          {statements.length > 0 && (
+            <div className="info-title">
+              <p className="info-title-line">Data</p>
+              <p className="info-title-line">Tipo</p>
+              <p className="info-title-line">Valor</p>
+            </div>
+          )}
 
           {statements &&
             statements.map((transaction) => (

@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 
 const OtherInfo = ({ latitude, longitude, receipt, setModal }) => {
   return (
-    <Container>
+    <Container>       
       <div className="location">
         <h2>Localização</h2>
         <p>Latitude : {latitude}</p>
