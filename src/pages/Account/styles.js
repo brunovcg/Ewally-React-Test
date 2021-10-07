@@ -11,8 +11,8 @@ export const Container = styled.div`
 
   .account-welcome-bar {
     margin: 20px 0;
-    width: 90%;
-    height: 6vh;
+    width: 95%;
+    height: 10vh;
     border-radius: 8px;
     background-color: var(--white);
     display: flex;
@@ -41,7 +41,7 @@ export const Container = styled.div`
     background-color: var(--white);
     min-height: 75vh;
     height: fit-content;
-    width: 90%;
+    width: 95%;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
@@ -56,6 +56,8 @@ export const Container = styled.div`
       text-align: center;
       color: var(--ewally-green);
       margin-bottom: 20px;
+      border-top: 1px dotted var(--light-grey);
+      border-bottom: 1px dotted var(--light-grey);
     }
 
     .account-date {
@@ -97,6 +99,7 @@ export const Container = styled.div`
           width: 80px;
           height: 80px;
           border: 4px solid var(--orange);
+          font-size: 1.6rem;
         }
       }
     }
@@ -123,20 +126,20 @@ export const Container = styled.div`
 
         .title-data {
           @media (max-width: 500px) {
-          width: 20%;
-        }
-        }
-
-        .title-type{
-          @media (max-width: 500px) {
-          width: 45%;
-        }
+            width: 20%;
+          }
         }
 
-        .title-value{
+        .title-type {
           @media (max-width: 500px) {
-          width: 35%;
+            width: 40%;
+          }
         }
+
+        .title-value {
+          @media (max-width: 500px) {
+            width: 40%;
+          }
         }
       }
 
@@ -167,14 +170,14 @@ export const Container = styled.div`
         .type {
           @media (max-width: 500px) {
             font-size: 0.5rem;
-            width: 50%;
+            width: 40%;
           }
         }
 
         .value {
           justify-content: flex-end;
           @media (max-width: 500px) {
-            width: 35%;
+            width: 45%;
           }
 
           button {

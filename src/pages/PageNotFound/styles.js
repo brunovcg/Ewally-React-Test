@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import back from "../../assets/back.jpg";
 
-const Container = styled.div`
+export const Container = styled.div`
   background-image: url(${back});
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,32 +18,15 @@ const Container = styled.div`
     height: 100%;
     background-color: var(--transparent-black);
 
-    .home-big-text,
-    .home-small-text {
-      color: var(--white);
-      width: 60%;
-      padding-left: 30px;
-      @media (max-width: 500px) {
-        width: 80%;
-      }
-    }
-
     .home-big-text {
+      color: var(--yellow);
+      width: 100%;
+      text-align: center;
       padding-top: 45px;
-      font-size: 3vw;
+      font-size: 10vw;
       font-weight: bold;
       @media (max-width: 500px) {
-        font-size: 5vw;
-      }
-    }
-
-    .home-small-text {
-      padding-top: 30px;
-      font-size: 2vw;
-
-      @media (max-width: 500px) {
-        font-size: 3.5vw;
-        font-weight: bold;
+        font-size: 10vw;
       }
     }
 
@@ -62,5 +45,3 @@ const Container = styled.div`
     }
   }
 `;
-
-export default Container;

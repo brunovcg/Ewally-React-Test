@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 
 const OtherInfo = ({ latitude, longitude, receipt, setModal }) => {
   return (
-    <Container>       
+    <Container>
       <div className="location">
         <h2>Localização</h2>
         <p>Latitude : {latitude}</p>
@@ -26,15 +26,17 @@ const OtherInfo = ({ latitude, longitude, receipt, setModal }) => {
                   </div>
                 ) : (
                   <div>
-                    {item
-                      .split("")
-                      .map((letter, index) =>
-                        letter === "_" ? (
-                          <span className="space" key={index}>{letter}</span>
-                        ) : (
-                          <span className="regular" key={index}>{letter}</span>
-                        )
-                      )}
+                    {item.split("").map((letter, index) =>
+                      letter === "_" ? (
+                        <span className="space" key={index}>
+                          {letter}
+                        </span>
+                      ) : (
+                        <span className="regular" key={index}>
+                          {letter}
+                        </span>
+                      )
+                    )}
                   </div>
                 )
               )}
@@ -44,7 +46,7 @@ const OtherInfo = ({ latitude, longitude, receipt, setModal }) => {
 
       <Button
         setBackground="var(--white)"
-        setColor= "var(--ewally-green)"
+        setColor="var(--ewally-green)"
         setClick={() => setModal()}
         setWidth="50px"
         setHeight="50px"
