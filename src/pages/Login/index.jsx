@@ -46,7 +46,7 @@ const Login = () => {
         toast.success("Bem vindo!");
       })
       .catch((err) => {
-        toast.error("Usuário ou senha errados");
+        toast.error("Verifique usuário ou senha");
       });
   };
 
@@ -64,7 +64,7 @@ const Login = () => {
 
           <form>
             <Input
-              placeholder="Username"
+              placeholder="Usuário"
               register={register}
               name="username"
               error={errors.username?.message}
@@ -75,7 +75,7 @@ const Login = () => {
             />
 
             <Input
-              placeholder="Password"
+              placeholder="Senha"
               type="password"
               register={register}
               name="password"
@@ -91,7 +91,7 @@ const Login = () => {
                 setWidth="120px"
                 setHeight="45px"
                 setBackground="var(--white)"
-                setColor="var(--ewally-green)"
+                setColor="var(--orange)"
                 setFont="1.2rem"
                 type="submit"
               >
