@@ -29,8 +29,8 @@ const Container = styled.div`
     }
 
     .home-big-text {
-      padding-top: 50px;
-      font-size: 4vw;
+      padding-top: 45px;
+      font-size: 3vw;
       font-weight: bold;
       @media (max-width: 500px) {
         font-size: 5vw;
@@ -38,8 +38,8 @@ const Container = styled.div`
     }
 
     .home-small-text{
-      padding-top: 35px;
-      font-size: 2.3vw;
+      padding-top: 30px;
+      font-size: 2vw;
 
       @media (max-width: 500px) {
         font-size: 3.5vw;
@@ -49,10 +49,19 @@ const Container = styled.div`
 
     .home-button-box{
 
-      padding-top: 70px;
+      padding-top: 20px;
       width: 100%;
       display: flex;
       justify-content: center;
+
+      button{
+       
+        border-radius: 50%;
+        width: 85px;
+        height: 85px;
+        border: 2px solid var(--white);
+      
+      }
 
     }
   }

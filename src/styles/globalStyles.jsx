@@ -8,10 +8,11 @@ export default createGlobalStyle`
         --purple: #8E0181;
         --pink: #D93E7B;
         --grey: #8d8b8b;
-        --light-grey: #C2C2C2;
+        --light-grey: #bfbfbf;
         --red: #EF3540;
-        --green: #14C821;
+        --green: #12a71c;
         --white: #fff;
+        --yellow: #fffcd6;
         --transparent-black: rgba(80, 82, 81, 0.466) ;
     }
 
@@ -24,6 +25,7 @@ export default createGlobalStyle`
 
     html{
         display: flex;
+        /* width: 100vw; */
         
     }
 
@@ -32,13 +34,17 @@ export default createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         display: flex;
         justify-content: center;
-        width: 100%;
-        
-
+        width: 100vw;
+    
     }
 
-    body, input, button,h1, h2, h3, h4, h5, h6, p, textarea, select{
+    body, input, button, h2, h3, h4, h5, h6, p, textarea, select{
         font-family: 'Open Sans', sans-serif;
+    }
+
+    h1{
+        font-family: 'Dancing Script', cursive;
+     
     }
 
     a {

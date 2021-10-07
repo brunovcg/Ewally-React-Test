@@ -1,10 +1,11 @@
 import { TokenProvider } from "./token";
+import { BalanceProvider } from "./balance";
 
 const providers = ({ children }) => {
   return (
-    
-      <TokenProvider>{children}</TokenProvider>
-  
+    <TokenProvider>
+      <BalanceProvider>{children}</BalanceProvider>
+    </TokenProvider>
   );
 };
 
