@@ -25,7 +25,8 @@ export const Container = styled.div`
       align-items: center;
       background-color: var(--white);
       width: 70%;
-      height: 50%;
+      max-width: 500px;
+      height: 70%;
 
       @media (max-width: 500px) {
         height: 60%;
@@ -42,12 +43,10 @@ export const Container = styled.div`
           height: 100%;
           width: 100%;
 
-        
-
           img {
-            width: 7vw;
+            height: 70%;
             @media (max-width: 500px) {
-              width: 12vw;
+              height: 50%;
             }
           }
         }
@@ -59,7 +58,7 @@ export const Container = styled.div`
           height: 100%;
           color: var(--grey);
           width: 100%;
-          font-size: 1.2rem;
+          font-size: 1.5rem;
         }
       }
       form {

@@ -16,7 +16,7 @@ import OtherInfo from "../../components/OtherInfo";
 import BarChart from "../../components/Chart";
 
 const Account = () => {
-  const { userToken, user } = useToken();
+  const {  user } = useToken();
   const { balance, getStatements, statements } = useBalance();
   const [valueInitial, setValueInitial] = useState(new Date());
   const [valueFinal, setValueFinal] = useState(new Date());
@@ -39,11 +39,7 @@ const Account = () => {
 
   return (
     <Container>
-      <button
-        onClick={() => console.log("balance:", balance, "token:", userToken)}
-      >
-        teste
-      </button>
+
       <Modal
         isOpen={modalIsOpen}
         style={customStyles}
@@ -62,7 +58,7 @@ const Account = () => {
       <div className="account-welcome-bar">
         <p>
           Bem vindo <span className="account-username">{user}</span> seu saldo é{" "}
-          <span className="account-balance">R$ {balance}</span>
+          <span className="account-balance">{balance}</span>
         </p>
       </div>
       <div className="account-extrato">
@@ -105,14 +101,16 @@ const Account = () => {
           </div>
         </div>
 
-        <BarChart statements={statements}/>
+        {statements.length > 0 && <BarChart statements={statements}/>}
+
+        
 
         <div className="account-extrato-infos">
           {statements.length > 0 && (
             <div className="info-title">
-              <p className="info-title-line">Data</p>
-              <p className="info-title-line">Tipo</p>
-              <p className="info-title-line">Valor</p>
+              <p className="info-title-line title-data">Data</p>
+              <p className="info-title-line title-type">Tipo</p>
+              <p className="info-title-line title-value">Valor</p>
             </div>
           )}
 
@@ -121,6 +119,8 @@ const Account = () => {
               <div className="info-statements" key={transaction.id}>
                 <div className="data">
                   {convertDate(stringToDate(transaction.createdAt), true)}
+
+
                 </div>
                 <div className="type">{transaction.operationType}</div>
                 <div
@@ -128,7 +128,10 @@ const Account = () => {
                     transaction.amount > 0 ? "positive" : "negative"
                   }`}
                 >
-                  R$ {convertToReal(transaction.amount)}
+               
+                {(convertToReal(transaction.amount))}
+
+
                   <Button
                     setWidth="30px"
                     setHeight="30px"

@@ -24,7 +24,7 @@ export const BalanceProvider = ({ children }) => {
     api.get(`account/balance`, configs).then((response) => {
       setBalance(convertToReal(response.data.balance));
 
-      localStorage.setItem("@Ewally:balance", JSON.stringify(convertToReal(response.data.balance).toString()))
+      localStorage.setItem("@Ewally:balance", JSON.stringify(convertToReal(response.data.balance)))
     });
   };
 

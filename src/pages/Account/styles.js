@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
+  padding-bottom: 20px;
   min-height: 90vh;
   background-color: var(--light-grey);
 
@@ -62,7 +62,7 @@ export const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 90%;
+      width: 80%;
       margin: 0 auto;
 
       .account-date-pickers {
@@ -88,12 +88,15 @@ export const Container = styled.div`
         width: 20%;
         display: flex;
         justify-content: center;
+        @media (max-width: 500px) {
+          width: 35%;
+        }
 
         button {
           border-radius: 50%;
-          width: 39px;
-          height: 39px;
-          border: 2px solid var(--orange);
+          width: 80px;
+          height: 80px;
+          border: 4px solid var(--orange);
         }
       }
     }
@@ -110,11 +113,30 @@ export const Container = styled.div`
         width: 100%;
         display: flex;
         align-items: center;
+        color: var(--ewally-green);
 
         .info-title-line {
           width: 33%;
           text-align: center;
           font-weight: bold;
+        }
+
+        .title-data {
+          @media (max-width: 500px) {
+          width: 20%;
+        }
+        }
+
+        .title-type{
+          @media (max-width: 500px) {
+          width: 45%;
+        }
+        }
+
+        .title-value{
+          @media (max-width: 500px) {
+          width: 35%;
+        }
         }
       }
 
@@ -144,7 +166,7 @@ export const Container = styled.div`
 
         .type {
           @media (max-width: 500px) {
-            font-size: 0.45rem;
+            font-size: 0.5rem;
             width: 50%;
           }
         }
@@ -152,7 +174,6 @@ export const Container = styled.div`
         .value {
           justify-content: flex-end;
           @media (max-width: 500px) {
-           
             width: 35%;
           }
 

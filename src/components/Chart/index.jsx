@@ -86,9 +86,7 @@ const BarChart = ({ statements }) => {
   return (
     <Container>
       <div className="header">
-        <button onClick={() => console.log(positiveArray, negativeArray)}>
-          teste
-        </button>
+    
         <h1 className="title">Movimentações</h1>
         <div className="links">
           <a

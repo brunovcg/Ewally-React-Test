@@ -28,11 +28,11 @@ const OtherInfo = ({ latitude, longitude, receipt, setModal }) => {
                   <div>
                     {item
                       .split("")
-                      .map((letter) =>
+                      .map((letter, index) =>
                         letter === "_" ? (
-                          <span className="space">{letter}</span>
+                          <span className="space" key={index}>{letter}</span>
                         ) : (
-                          <span className="regular">{letter}</span>
+                          <span className="regular" key={index}>{letter}</span>
                         )
                       )}
                   </div>
