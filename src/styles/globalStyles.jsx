@@ -25,8 +25,6 @@ export default createGlobalStyle`
 
     html{
         display: flex;
-        /* width: 100vw; */
-        
     }
 
     body {
@@ -35,7 +33,9 @@ export default createGlobalStyle`
         display: flex;
         justify-content: center;
         width: 100vw;
-    
+        #root{
+            width: 100%;
+        }
     }
 
     body, input, button, h2, h3, h4, h5, h6, p, textarea, select{

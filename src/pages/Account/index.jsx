@@ -2,7 +2,7 @@
 import { Container } from "./styles";
 import { useToken } from "../../providers/token";
 import { useBalance } from "../../providers/balance";
-import {  useState } from "react";
+import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "../../components/Button";
 import convertDate from "../../utils/convertDate";
@@ -16,7 +16,7 @@ import OtherInfo from "../../components/OtherInfo";
 import BarChart from "../../components/Chart";
 
 const Account = () => {
-  const {  user } = useToken();
+  const { user } = useToken();
   const { balance, getStatements, statements } = useBalance();
   const [valueInitial, setValueInitial] = useState(new Date());
   const [valueFinal, setValueFinal] = useState(new Date());
@@ -39,7 +39,6 @@ const Account = () => {
 
   return (
     <Container>
-
       <Modal
         isOpen={modalIsOpen}
         style={customStyles}
@@ -62,7 +61,7 @@ const Account = () => {
         </p>
       </div>
       <div className="account-extrato">
-        <h2>Extato</h2>
+        <h2>Extrato</h2>
 
         <div className="account-date">
           <div className="account-date-pickers">
@@ -101,9 +100,7 @@ const Account = () => {
           </div>
         </div>
 
-        {statements.length > 0 && <BarChart statements={statements}/>}
-
-        
+        {statements.length > 0 && <BarChart statements={statements} />}
 
         <div className="account-extrato-infos">
           {statements.length > 0 && (
@@ -119,8 +116,6 @@ const Account = () => {
               <div className="info-statements" key={transaction.id}>
                 <div className="data">
                   {convertDate(stringToDate(transaction.createdAt), true)}
-
-
                 </div>
                 <div className="type">{transaction.operationType}</div>
                 <div
@@ -128,9 +123,7 @@ const Account = () => {
                     transaction.amount > 0 ? "positive" : "negative"
                   }`}
                 >
-               
-                {(convertToReal(transaction.amount))}
-
+                  {convertToReal(transaction.amount)}
 
                   <Button
                     setWidth="30px"

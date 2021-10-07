@@ -86,8 +86,7 @@ const BarChart = ({ statements }) => {
   return (
     <Container>
       <div className="header">
-    
-        <h1 className="title">Movimentações</h1>
+        <h1 className="title">Movimentações R$</h1>
         <div className="links">
           <a
             className="btn btn-gh"

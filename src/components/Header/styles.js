@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 100vw;
+  max-width: 100vw;
   height: 10vh;
   display: flex;
 
@@ -37,6 +37,9 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    @media (max-width: 500px) {
+      width: 50%;
+    }
 
     h1 {
       color: var(--grey);
@@ -45,7 +48,6 @@ const Container = styled.div`
 
   .header-apps {
     width: 25%;
-    margin-right: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -75,6 +77,11 @@ const Container = styled.div`
       width: 39px;
       height: 39px;
       border: 2px solid var(--red);
+      @media (max-width: 500px) {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+      }
     }
   }
 `;

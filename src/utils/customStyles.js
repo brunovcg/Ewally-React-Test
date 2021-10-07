@@ -11,4 +11,4 @@ const customStyles = {
   },
 };
 
-export default customStyles
+export default customStyles;

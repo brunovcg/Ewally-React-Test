@@ -9,6 +9,7 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import logo from "../../assets/logo.png";
 import { useBalance } from "../../providers/balance";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { setUserToken } = useToken();
@@ -31,23 +32,22 @@ const Login = () => {
   });
 
   const onSubmitFunction = async (data) => {
-    api.post("user/login", data).then((response) => {
+    api
+      .post("user/login", data)
+      .then((response) => {
+        const { token } = response.data;
 
-      const { token } = response.data;
+        localStorage.setItem("@Ewally:Token:User", JSON.stringify(token));
+        setUserToken(token);
 
-      localStorage.setItem("@Ewally:Token:User", JSON.stringify(token));
-      setUserToken(token);
+        localStorage.setItem("@Ewally:Username", JSON.stringify(user));
 
-      localStorage.setItem("@Ewally:Username", JSON.stringify(user));
-
-
-      getBalance(token);
-
-      // return history.push("/dashboard");
-    });
-    //   .catch((err) => {
-    //     toast.error("Invalid e-mail or password");
-    //   });
+        getBalance(token);
+        toast.success("Bem vindo!");
+      })
+      .catch((err) => {
+        toast.error("Usuário ou senha errados");
+      });
   };
 
   return (

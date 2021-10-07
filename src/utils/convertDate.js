@@ -6,7 +6,6 @@ const convertDate = (data, reverse = false) => {
   let ano = data.getFullYear();
 
   if (reverse) {
-
     return `${dia}/${mes}/${ano}`;
   }
 
