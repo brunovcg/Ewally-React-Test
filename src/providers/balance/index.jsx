@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useToken } from "../token";
 import convertToReal from "../../utils/convertToReal";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 export const BalanceContext = createContext();
 
@@ -43,6 +44,9 @@ export const BalanceProvider = ({ children }) => {
       )
       .then((response) => {
         setStatements(response.data.statement);
+        if (response.data.statement.length === 0) {
+          toast.info("Não existe informações para este período de tempo.");
+        }
       });
   };
 

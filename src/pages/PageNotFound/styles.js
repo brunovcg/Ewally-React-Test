@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import back from "../../assets/back.jpg";
 
-export const Container = styled.div`
+export const Container = styled.main`
   background-image: url(${back});
   background-size: cover;
   background-repeat: no-repeat;

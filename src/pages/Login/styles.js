@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import back from "../../assets/back.jpg";
 
-export const Container = styled.div`
+export const Container = styled.main`
   background-image: url(${back});
   background-size: cover;
   background-repeat: no-repeat;
@@ -87,7 +87,7 @@ export const Container = styled.div`
             border-radius: 50%;
             width: 70px;
             height: 70px;
-            border: 2px solid var(--ewally-green);
+            border: 3px solid var(--orange);
           }
         }
       }

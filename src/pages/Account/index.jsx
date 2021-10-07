@@ -63,7 +63,7 @@ const Account = () => {
       <div className="account-extrato">
         <h2>Extrato</h2>
 
-        <div className="account-date">
+        <article className="account-date">
           <div className="account-date-pickers">
             <div className="account-date-pickers-box">
               <p>Data Inicial</p>
@@ -98,11 +98,11 @@ const Account = () => {
               OK
             </Button>
           </div>
-        </div>
+        </article>
 
         {statements.length > 0 && <BarChart statements={statements} />}
 
-        <div className="account-extrato-infos">
+        <article className="account-extrato-infos">
           {statements.length > 0 && (
             <div className="info-title">
               <p className="info-title-line title-data">Data</p>
@@ -143,7 +143,7 @@ const Account = () => {
                 </div>
               </div>
             ))}
-        </div>
+        </article>
       </div>
     </Container>
   );
