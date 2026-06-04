@@ -5,10 +5,10 @@ Esse APP foi desenvolvido para atender ao teste do processo seletivo da Ewally
 
 ## Instalação e Dependências
 
-Após baixar via git, executar o comando <yarn> no terminal para carregar todas as dependências
+Após baixar via git, executar o comando "yarn" no terminal para carregar todas as dependências
 você deve ter o YARN instalado
 
-Inserir <yarn> <start> no terminal.
+Inserir "yarn start" no terminal.
 Verifique se está na porta 3000. Poderá haver bloqueio de CORS POLICY em outra porta.
 
 
@@ -23,29 +23,29 @@ Responsivo para Mobile.
 
 # Funcionamento
 
-## HEADER
+### HEADER
 Ícone da Ewally no cato superior esquerdo para voltar a Home
 ícones dara dowload do applicativo da Ewally
 Ícone de LOGOUT quando logado na tela Account
 
-## HOME "/"
+### HOME "/"
 
 Apresenta informações da Ewally extraidas do próprio site.
 Um botão para seguir a tela Login.
 
-## LOGIN "/login"
+### LOGIN "/login"
 Formulário com usuário e senha para login na api.
 Caso haja erros de formuário, será mostrado ao usuário.
 Caso esteja certo, redirecionado a tela account e um pop-up com Bem vindo surge.
 Caso a senha esteja errada, aparecerá um pop up informando.
 
 
-#### para teste default:
+##### para teste default:
 Usuário: testFrontEwally
 senha: 123456
 
 
-## ACCOUNT "/account"
+### ACCOUNT "/account"
 Precisa está logado para acessar
 
 
@@ -65,7 +65,7 @@ Uma lista de gastos, citando data, tipo , valor e um botão para o comprovante.
 Caso clicado esse botão, será exibido o comprovante, se houver e a localização.
 
 
-## PageNotfound 
+### PageNotfound 
 
 Caso não esteja logado, e digite uma rota que não existe será redirecionado para a Not Found, que informa ao usuário e existe um botão para retornar a home.
 
